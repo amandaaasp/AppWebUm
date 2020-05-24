@@ -4,10 +4,10 @@
     Author     : Supermands
 --%>
 
-<%@page import="Controller.CtrUsuarios"%>
+<%@page import="Controller.CtrCliente"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
-<%@page import="Model.Usuarios"%>
+<%@page import="Model.Cliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,16 +18,20 @@
     <body>
         <h1>Pagina interna do sistema</h1>
         <%
-            Usuarios objU = new Usuarios();
-            List<Usuarios> lista = new ArrayList<Usuarios>();
-            CtrUsuarios objCtr = new CtrUsuarios();
+            Cliente objU = new Cliente();
+            List<Cliente> lista = new ArrayList<Cliente>();
+            CtrCliente objCtr = new CtrCliente();
             objU.setLogin(request.getParameter("login"));
             objU.setSenha(request.getParameter("senha"));
-            lista = objCtr.ListarUsuario(objU);
+            lista = objCtr.ListarCliente(objU);
             for(int i=0; i<lista.size(); i++)
             {
                 if(lista.size()==1)
-                out.print("Usuario conectado");
+                {
+                HttpSession sessao = request.getSession();
+                sessao.setAttribute("var_sessao_login", objU.getLogin());
+                out.print("Bem vindo "+sessao.getAttribute("var_sessao_login"));
+                }
             }
             if(lista.size()==0)
                     response.sendRedirect("login.jsp");
