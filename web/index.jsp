@@ -19,6 +19,8 @@
         <a href="pais/cadpais.jsp">Cadastrar país</a> <br>
         <a href="pais/listarpais.jsp">Listar país</a> <br>
         <a href="login.jsp">Entrar</a> <br>
+        <a href="listarprodutos.jsp">Produtos</a> <br>
+        
         
         
     </body>

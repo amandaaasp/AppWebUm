@@ -1,6 +1,6 @@
 <%-- 
-    Document   : teste
-    Created on : 18/05/2020, 20:10:41
+    Document   : addpedido
+    Created on : 01/06/2020, 22:37:40
     Author     : Supermands
 --%>
 
@@ -13,12 +13,13 @@
     </head>
     <body>
         <h1>Hello World!</h1>
-        
+        <%@include file="validalogin.jsp"%>
         <%
-            HttpSession sessao = request.getSession();
-            out.print(sessao.getAttribute("var_sessao_login"));
-            if(sessao.getAttribute("var_sessao_login")==null)
-                response.sendRedirect("index.jsp");
+            
+            
+            
         %>
+        
+        
     </body>
 </html>
